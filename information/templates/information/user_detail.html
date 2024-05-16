@@ -1,0 +1,17 @@
+{% extends 'layouts.html' %}
+
+{% block content %}
+    <h1 class="mt-4 mb-4">{{ user.full_name }}</h1>
+    <div class="card">
+        <div class="card-body">
+            <p><strong>Image:</strong> <img src="{{ user.image.url }}" alt="{{ user.full_name }}" width="100"></p>
+            <p><strong>Address:</strong> {{ user.address }}</p>
+            <p><strong>Birthplace:</strong> {{ user.birthplace }}</p>
+            <p><strong>Date of Birth:</strong> {{ user.date_of_birth }}</p>
+            <p><strong>Education:</strong> {{ user.education }}</p>
+            <p><strong>Gender:</strong> {{ user.gender }}</p>
+            <a href="{% url 'user_edit' user.id %}" class="btn btn-secondary">Edit</a>
+            <a href="{% url 'user_list' %}" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+{% endblock %}
