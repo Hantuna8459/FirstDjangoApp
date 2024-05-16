@@ -13,7 +13,8 @@ class UserForm(forms.ModelForm):
         'birthplace':'Birthplace',
         'education':'Educatuion',
         'gender':'Gender',
-        'date_of_birth':'Date of Birth',
+        'date_of_birth':'Date of Birth', 
+        'image':'Image',
     }
     
     widgets ={

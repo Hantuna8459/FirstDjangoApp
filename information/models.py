@@ -9,7 +9,7 @@ class Users(models.Model):
     date_of_birth = models.DateField()
     education = models.CharField(max_length=50)
     gender = models.CharField(max_length=7)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
     
     def __str__(self):  #convert full_name from Users class into string
         return f'{self.full_name}'
