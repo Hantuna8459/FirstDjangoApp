@@ -7,7 +7,7 @@ class Migration(migrations.Migration):
     operations = [
          migrations.AddField(
             model_name='Users',
-            name='image',
-            field=models.ImageField(upload_to='images/', null=True, blank=True),
+            name='phone_number',
+            field=models.CharField(max_length=10),
         ),
     ]
