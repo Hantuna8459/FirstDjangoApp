@@ -1,2 +1,3 @@
-__pycache__/
-information/__pycache__/
+/__pycache__/
+/information/__pycache__/
+/information/migrations/
