@@ -19,7 +19,7 @@ def create(request):
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save     
-        return redirect('information/user_list.html')
+        return redirect('user_list')
     template_name = 'information/user_create.html'
     context = {'form':form}
     return render(request, template_name, context)
@@ -37,7 +37,7 @@ def update(request, pk):
        form = UserForm(request.POST, request.FILES, instance=user)
        if form.is_valid():
            form.save()
-           return redirect('information/user_list.html')
+           return redirect('user_list')
    template_name = 'information/user_update.html'
    context = {'form':form}
    return render(request, template_name, context)
@@ -46,7 +46,7 @@ def delete(request, pk):
     user = get_object_or_404(Users, pk=pk)
     if request.method == 'POST':
         user.delete()
-        return redirect('information/user_list.html')
+        return redirect('user_list')
     template_name = 'information/user_confirm_delete.html'
     context = {'user':user}
     return render(request, template_name, context)

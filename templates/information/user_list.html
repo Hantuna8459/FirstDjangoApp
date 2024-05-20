@@ -17,14 +17,14 @@
                 <th scope="col">Date of Birth</th>
                 <th scope="col">Education</th>
                 <th scope="col">Gender</th>
-                <th scope="col">Image</th>
+                {% comment %} <th scope="col">Image</th> {% endcomment %}
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for user in users %}
             <tr>
-                <td>{{ forloop.counter }}</td>
+                <td>{{ user.id }}</td>
                 <td>{{ user.full_name }}</td>
                 <td>{{ user.address }}</td>
                 <td>{{ user.birthplace }}</td>
@@ -36,9 +36,9 @@
                     <a href="{% url 'user_detail' user.id %}" class="btn btn-primary btn-sm">
                         <i class="bi bi-eye"></i>
                     </a>
-                    <a href="{% url 'user_edit' user.id %}" class="btn btn-warning btn-sm">
+                    {% comment %} <a href="{% url 'user_edit' user.id %}" class="btn btn-warning btn-sm">
                         <i class="bi bi-pencil"></i>
-                    </a>
+                    </a> {% endcomment %}
                     <a href="{% url 'user_delete' user.id %}" class="btn btn-danger btn-sm">
                         <i class="bi bi-trash"></i>
                     </a>

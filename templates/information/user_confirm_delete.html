@@ -1,0 +1,12 @@
+{% extends "layouts.html" %}
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Delete User</h1>
+    <p>Are you sure you want to delete "{{ user.full_name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'user_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{%endblock%}

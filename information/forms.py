@@ -16,8 +16,5 @@ class UserForm(forms.ModelForm):
         'date_of_birth':'Date of Birth', 
         'image':'Image',
     }
+
     
-    widgets ={
-        'address' : forms.TextInput(attrs={'placeholder': 'eg. 8th floor Duong Dinh Nghe str'}),
-        'date_of_birth' : forms.DateInput(attrs={'placeholder': 'đd/mm/YYYY'}),
-    }

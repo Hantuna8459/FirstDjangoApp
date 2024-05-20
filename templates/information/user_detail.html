@@ -10,7 +10,7 @@
             <p><strong>Date of Birth:</strong> {{ user.date_of_birth }}</p>
             <p><strong>Education:</strong> {{ user.education }}</p>
             <p><strong>Gender:</strong> {{ user.gender }}</p>
-            <a href="{% url 'user_edit' user.id %}" class="btn btn-secondary">Edit</a>
+            <a href="{% url 'user_edit' user.id %}" class="btn btn-secondary">Update</a>
             <a href="{% url 'user_list' %}" class="btn btn-primary">Back to List</a>
         </div>
     </div>
