@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.contrib import messages
 from .models import Users
 from .forms import UserForm
 
@@ -8,9 +9,9 @@ from .forms import UserForm
 #     return HttpResponse("Hello, world")
 
 def list(request):
-    user = Users.objects.all()
+    users = Users.objects.all()
     template_name = 'information/user_list.html'
-    context = {'user':user}
+    context = {'users':users}
     return render(request, template_name, context)
 
 def create(request):
@@ -18,20 +19,26 @@ def create(request):
     if request.method == 'POST':
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save     
-        return redirect('user_list')
+            print("Form is valid. Saving data to the database...")
+            form.save()
+            return redirect('user_list')
+        else:
+            print ("form is invalid")
+            for field, errors in form.errors.items():
+                for error in errors:
+                    print(f"Field: {field} - Error: {error}")   
     template_name = 'information/user_create.html'
     context = {'form':form}
     return render(request, template_name, context)
 
 def detail(request, pk):
-    user = get_object_or_404(Users, pk=pk)
+    user = get_object_or_404(Users, id=pk)
     template_name = 'information/user_detail.html'
     context = {'user':user}
     return render(request, template_name, context)
     
 def update(request, pk):
-   user = get_object_or_404(Users, pk=pk)
+   user = get_object_or_404(Users, id=pk)
    form = UserForm()
    if request.method == 'POST':
        form = UserForm(request.POST, request.FILES, instance=user)
@@ -43,7 +50,7 @@ def update(request, pk):
    return render(request, template_name, context)
 
 def delete(request, pk):
-    user = get_object_or_404(Users, pk=pk)
+    user = get_object_or_404(Users, id=pk)
     if request.method == 'POST':
         user.delete()
         return redirect('user_list')

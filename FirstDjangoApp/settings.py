@@ -140,9 +140,9 @@ FILE_UPLOAD_HANDLER = [
     "django.core.files.uploadhandler.MemoryFileUploadHandler",
     "django.core.files.uploadhandler.TemporaryFileUploadHandler",
 ]
-MEDIA_URLS = 'images'
+MEDIA_URLS = 'user_images'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'information/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'information/')
 
 
 
